@@ -96,6 +96,10 @@ const logoutUser = asyncHandler(async (req, res) => {
 const deleteUser = asyncHandler(async (req, res) => {
     const userId = req.user._id
 
+    if (!userId) {
+        throw new ApiError(400, "User does not exists")
+    }
+
     const deletedUser = await User.findByIdAndDelete(userId)
 
     return res.status(200).json(

@@ -9,13 +9,13 @@ const TaskSchema = new Schema(
             type: String,
             required: true
         },
-        owner: {
-            type: Schema.Types.ObjectId,
-            ref: "User"
-        },
         completed: {
             type: Boolean,
             default: false
+        },
+        project: {
+            type: Schema.Types.ObjectId,
+            ref: "Project"
         }
     },
     {timestamps: true}

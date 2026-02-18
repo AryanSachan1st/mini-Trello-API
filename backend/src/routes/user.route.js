@@ -7,6 +7,6 @@ const userRouter = Router()
 userRouter.route("/register-user").post(registerUser)
 userRouter.route("/login").post(loginUser)
 userRouter.route("/logout").post(verifyJWT, logoutUser)
-userRouter.route("/delete-user").post(verifyJWT, deleteUser)
+userRouter.route("/delete-user").delete(verifyJWT, deleteUser)
 
 export { userRouter }

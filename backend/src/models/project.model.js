@@ -28,4 +28,7 @@ const ProjectSchema = new Schema(
     {timestamps: true}
 )
 
+ProjectSchema.index({title: 1, owner: 1}, {unique: true}) // project is unique to an owner, not globally
+
 export const Project = model("Project", ProjectSchema)
+Project.syncIndexes();

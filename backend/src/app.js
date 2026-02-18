@@ -17,13 +17,15 @@ app.use("/", apiHealthRouter)
 
 // user routes
 import { userRouter } from "./routes/user.route.js"
-app.use("/users", userRouter)
-
-// task routes
-
+app.use("/api/v1/users", userRouter)
 
 // project routes
+import { projectRouter } from "./routes/project.route.js"
+app.use("/api/v1/projects", projectRouter)
 
+// task routes
+import { taskRouter } from "./routes/task.route.js"
+app.use("/api/v1/projects/:projectId/tasks", taskRouter)
 
 
 // global error handler
